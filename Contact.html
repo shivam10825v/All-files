@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Typing Classes</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: #1e3a8a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: #2563eb;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px 20px;
+      background: white;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #1e3a8a;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0f2a66;
+    }
+
+    .info {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f1f5f9;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      background: #1e3a8a;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Contact Us</h1>
+  <p>We are here to help you improve your typing skills</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="Courses.html">Courses</a>
+  <a href="TypingTest.html">Typing Test</a>
+  <a href="Contact.html">Contact</a>
+</nav>
+
+<div class="container">
+
+  <h2>Send Us a Message</h2>
+
+  <form onsubmit="submitForm(event)">
+    <label>Your Name</label>
+    <input type="text" required placeholder="Enter your name"/>
+
+    <label>Email</label>
+    <input type="email" required placeholder="Enter your email"/>
+
+    <label>Message</label>
+    <textarea rows="5" required placeholder="Write your message here..."></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div class="info">
+    <h3>Contact Information</h3>
+    <p>Email: typingclasses@example.com</p>
+    <p>Phone: +91-9876543210</p>
+    <p>Location: Maharashtra, India</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Typing Classes. All rights reserved.</p>
+</footer>
+
+<script>
+function submitForm(event) {
+  event.preventDefault();
+  alert("Message sent successfully! We will contact you soon.");
+}
+</script>
+
+</body>
+</html>

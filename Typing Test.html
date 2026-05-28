@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Typing Test - Typing Classes</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: #1e3a8a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: #2563eb;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 20px;
+      background: white;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+
+    .text-box {
+      background: #f1f5f9;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      font-size: 16px;
+      padding: 10px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #1e3a8a;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: green;
+    }
+
+    .timer {
+      font-size: 20px;
+      font-weight: bold;
+      color: red;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1e3a8a;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Typing Speed Test</h1>
+  <p>Test your typing speed and accuracy</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="Courses.html">Courses</a>
+  <a href="TypingTest.html">Typing Test</a>
+</nav>
+
+<div class="container">
+
+  <div class="timer">
+    Time Left: <span id="time">60</span> sec
+  </div>
+
+  <div class="text-box">
+    The quick brown fox jumps over the lazy dog. Practice daily to improve your typing speed and accuracy.
+  </div>
+
+  <textarea id="inputText" placeholder="Start typing here..."></textarea>
+
+  <br>
+  <button onclick="startTest()">Start Test</button>
+  <button onclick="calculateResult()">Submit</button>
+
+  <div class="result" id="result"></div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Typing Classes. All rights reserved.</p>
+</footer>
+
+<script>
+let timeLeft = 60;
+let timerStarted = false;
+let timer;
+
+function startTest() {
+  if (timerStarted) return;
+
+  timerStarted = true;
+
+  timer = setInterval(() => {
+    timeLeft--;
+    document.getElementById("time").innerText = timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      calculateResult();
+    }
+  }, 1000);
+}
+
+function calculateResult() {
+  clearInterval(timer);
+
+  const sample = "The quick brown fox jumps over the lazy dog. Practice daily to improve your typing speed and accuracy.";
+  const input = document.getElementById("inputText").value.trim();
+
+  const sampleWords = sample.split(" ");
+  const inputWords = input.split(" ");
+
+  let correct = 0;
+
+  for (let i = 0; i < inputWords.length; i++) {
+    if (inputWords[i] === sampleWords[i]) {
+      correct++;
+    }
+  }
+
+  let accuracy = (correct / sampleWords.length) * 100;
+  let wpm = inputWords.length;
+
+  document.getElementById("result").innerHTML =
+    "WPM: " + wpm + " | Accuracy: " + accuracy.toFixed(2) + "%";
+}
+</script>
+
+</body>
+</html>
